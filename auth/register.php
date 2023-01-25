@@ -6,15 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name     = $_POST['name'];
     $username = $_POST['username'];
     $password = $_POST['pass'];
-    echo $name;
 
     include('../database/connect.inc.php');
     $result = register($name, $username, $password);
     echo $result ? "true" : "false";
     if ($result) {
         header('location: login.php');
-        }
     }
+}
 ?>
 
 <head>
