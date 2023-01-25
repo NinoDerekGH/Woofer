@@ -19,7 +19,7 @@
 <body>
     <?php
     if (!isset($_COOKIE['user'])) {
-        header("location: ../auth/login.php");
+        header("location: auth/login.php");
         }
     ?>
 
@@ -28,7 +28,7 @@
         <div class="container">
 
             <!-- System Brand -->
-            <a href="#" class="navbar-brand"><img src="../static/images/brand.png" alt="brand"></a>
+            <a href="#" class="navbar-brand"><img src="static/images/brand.png" alt="brand"></a>
 
             <!-- Responsive Hamburger Button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#hamburger"
@@ -48,105 +48,68 @@
     </nav>
 
     <!-- Dogs -->
-    <section class="dog_cards container">
-        <div class="row text-center py-5">
-            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                <div class="card">
-                    <img src="../static/images/golden.png" alt="Golden Retriever" class="card-img-top">
-                    <div class="card-body">
-                        <p class="card-text text-center fs-5">Golden Retriever</p>
+    <section class="dogs container">
+        <div class="row d-flex justify-content-center py-5">
+            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 me-auto">
+                <form action="" method="">
+                    <div class="card">
+                        <h3 class="card-header text-center">Add Dog</h3>
+                        <div class="card-body">
+
+                            <div class="form-group mb-2">
+                                <label for="dname" class="form-label">Dog Name</label>
+                                <input required type="text" class="form-control" id="dname" name="dname">
+                            </div>
+
+                            <div class="form-group mb-2">
+                                <label for="breed" class="form-label">Dog Breed</label>
+                                <input required type="text" class="form-control" id="breed" name="breed">
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select required class="form-control">
+                                    <option value="1">Available</option>
+                                    <option value="2">Adopted</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <button type="submit" class="btn btn-success w-100">Save</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal"
-                            data-bs-target="#modalTableA">View</button>
-                    </div>
-                </div>
+                </form>
             </div>
 
-            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 mx-auto">
+            <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8 ms-auto">
                 <div class="card">
-                    <img src="../static/images/german.png" alt="German Shepherd" class="card-img-top">
+                    <h3 class="card-header text-center">List of Dogs</h3>
                     <div class="card-body">
-                        <p class="card-text text-center fs-5">German Shepherd</p>
-                    </div>
-                    <div class="card-footer col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal"
-                            data-bs-target="#modalTableB">View</button>
-                    </div>
-                </div>
-            </div>
+                        <table class="table table-light-striped text-center" id="dog_table">
+                            <thead>
+                                <tr>
+                                    <th>Dog Name</th>
+                                    <th>Breed</th>
+                                    <th>Status</th>
+                                    <th>Update</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-            <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                <div class="card">
-                    <img src="../static/images/husky.png" alt="Siberian Husky" class="card-img-top">
-                    <div class="card-body">
-                        <p class="card-text text-center fs-5">Siberian Husky</p>
-                    </div>
-                    <div class="card-footer col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal"
-                            data-bs-target="#modalTableC">View</button>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
-    <!-- Modal A -->
-    <div class="modal fade" id="modalTableA" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Available Dogs</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
+    <!-- Modal Update Dog -->
+    <div class="modal fade" id="modalTableA" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     </div>
 
-    <!-- Modal B -->
-    <div class="modal fade" id="modalTableB" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Available Dogs</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal C -->
-    <div class="modal fade" id="modalTableC" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Available Dogs</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Bootstrap Popper CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
@@ -161,6 +124,8 @@
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.3.js"
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 </body>
 

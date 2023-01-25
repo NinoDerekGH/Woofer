@@ -70,11 +70,3 @@ body {
 
 /* ----- Dogs ----- */
 
-.dog_cards .card {
-    width: 415px;
-}
-
-.dog_cards .card-img-top{
-    height: 45vh;
-    width: auto;
-}
